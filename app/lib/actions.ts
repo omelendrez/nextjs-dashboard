@@ -53,8 +53,6 @@ export async function createInvoice(formData: FormData) {
   const amountInCents = amount * 100;
   const date = new Date().toISOString().split('T')[0];
 
-  console.log({ customerId, amountInCents, status, date });
-
   // Insert data into the database
   try {
     await sql`

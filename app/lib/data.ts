@@ -100,6 +100,7 @@ export async function fetchFilteredInvoices(
   const offset = (currentPage - 1) * ITEMS_PER_PAGE;
 
   try {
+    // CSpell: disable
     const invoices = await sql<InvoicesTable>`
       SELECT
         invoices.id,
@@ -120,6 +121,7 @@ export async function fetchFilteredInvoices(
       ORDER BY invoices.date DESC
       LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
     `;
+    // CSpell: enable
 
     return invoices.rows;
   } catch (error) {
@@ -131,6 +133,7 @@ export async function fetchFilteredInvoices(
 export async function fetchInvoicesPages(query: string) {
   noStore();
   try {
+    // CSpell: disable
     const count = await sql`SELECT COUNT(*)
     FROM invoices
     JOIN customers ON invoices.customer_id = customers.id
@@ -141,7 +144,7 @@ export async function fetchInvoicesPages(query: string) {
       invoices.date::text ILIKE ${`%${query}%`} OR
       invoices.status ILIKE ${`%${query}%`}
   `;
-
+    //  CSpell: enable
     const totalPages = Math.ceil(Number(count.rows[0].count) / ITEMS_PER_PAGE);
     return totalPages;
   } catch (error) {
@@ -198,6 +201,7 @@ export async function fetchCustomers() {
 export async function fetchFilteredCustomers(query: string) {
   noStore();
   try {
+    // CSpell: disable
     const data = await sql<CustomersTableType>`
 		SELECT
 		  customers.id,
@@ -215,6 +219,7 @@ export async function fetchFilteredCustomers(query: string) {
 		GROUP BY customers.id, customers.name, customers.email, customers.image_url
 		ORDER BY customers.name ASC
 	  `;
+    // CSpell: enable
 
     const customers = data.rows.map((customer) => ({
       ...customer,
