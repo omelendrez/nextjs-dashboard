@@ -18,6 +18,7 @@ async function seedUsers(client) {
         email TEXT NOT NULL UNIQUE,
         password TEXT NOT NULL
       );
+      TRUNCATE TABLE users RESTART IDENTITY;
     `;
 
     console.log(`Created "users" table`);
@@ -59,6 +60,7 @@ async function seedInvoices(client) {
     status VARCHAR(255) NOT NULL,
     date DATE NOT NULL
   );
+  TRUNCATE TABLE invoices RESTART IDENTITY;
 `;
 
     console.log(`Created "invoices" table`);
@@ -98,6 +100,7 @@ async function seedCustomers(client) {
         email VARCHAR(255) NOT NULL,
         image_url VARCHAR(255) NOT NULL
       );
+      TRUNCATE TABLE customers RESTART IDENTITY;
     `;
 
     console.log(`Created "customers" table`);
@@ -133,6 +136,7 @@ async function seedRevenue(client) {
         month VARCHAR(4) NOT NULL UNIQUE,
         revenue INT NOT NULL
       );
+      TRUNCATE TABLE revenue RESTART IDENTITY;
     `;
 
     console.log(`Created "revenue" table`);

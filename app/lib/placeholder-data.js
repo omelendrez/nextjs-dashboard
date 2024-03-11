@@ -1,3 +1,4 @@
+/* cSpell:disable */
 // This file contains placeholder data that you'll be replacing with real data in the Data Fetching chapter:
 // https://nextjs.org/learn/dashboard-app/fetching-data
 const users = [
@@ -5,6 +6,12 @@ const users = [
     id: '410544b2-4001-4271-9855-fec4b6a6442a',
     name: 'User',
     email: 'user@nextmail.com',
+    password: '123456',
+  },
+  {
+    id: '3ec4b0e1-8fb0-4a1c-9310-96cbee25de1f',
+    name: 'Omar',
+    email: 'omar.melendrez@gmail.com',
     password: '123456',
   },
 ];
@@ -153,7 +160,7 @@ const invoices = [
   },
   {
     customer_id: customers[0].id,
-    amount: 8945,
+    amount: 894500,
     status: 'paid',
     date: '2023-10-04',
   },
