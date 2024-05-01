@@ -1,3 +1,8 @@
 export default function Customers() {
-  return <p>Customers</p>;
+  return (
+    <main className="container">
+      <h1>Customers</h1>
+      <p className="text-sm">Work in progress...</p>
+    </main>
+  );
 }
